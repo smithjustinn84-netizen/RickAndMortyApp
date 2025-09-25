@@ -13,9 +13,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * Implementation of [io.github.smithjustinn84_netizen.rickandmortyapp.domain.CharacterRepo] that uses a [androidx.paging.Pager] and [CharacterDao].
+ * Implementation of [CharacterRepo] that uses a [Pager] and [CharacterDao].
  *
- * @property pager The [androidx.paging.Pager] for [CharacterEntity] objects.
+ * @property pager The [Pager] for [CharacterEntity] objects.
  * @property dao The [CharacterDao] for accessing local character data.
  */
 @Singleton
@@ -25,10 +25,10 @@ class CharacterRepoImpl @Inject constructor(
 ) : CharacterRepo {
 
     /**
-     * Returns a [kotlinx.coroutines.flow.Flow] of [androidx.paging.PagingData] for [io.github.smithjustinn84_netizen.rickandmortyapp.domain.model.Character] domain objects.
-     * The data is fetched from the [pager] and mapped to [io.github.smithjustinn84_netizen.rickandmortyapp.domain.model.Character] domain objects.
+     * Returns a [Flow] of [PagingData] for [Character] domain objects.
+     * The data is fetched from the [pager] and mapped to [Character] domain objects.
      *
-     * @return A [kotlinx.coroutines.flow.Flow] of [androidx.paging.PagingData] containing [Character] domain objects.
+     * @return A [Flow] of [PagingData] containing [Character] domain objects.
      */
     override fun getCharacters(): Flow<PagingData<Character>> {
         // Map from CharacterEntity to domain Character

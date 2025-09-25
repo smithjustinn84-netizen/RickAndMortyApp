@@ -30,7 +30,7 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Charact
 /**
  * Composable function that displays a single character row in the list.
  *
- * @param character The [io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Character] data for the row.
+ * @param character The [Character] data for the row.
  * @param onClick Callback invoked when the character row is clicked, providing the character's ID.
  */
 @OptIn(ExperimentalCoilApi::class)

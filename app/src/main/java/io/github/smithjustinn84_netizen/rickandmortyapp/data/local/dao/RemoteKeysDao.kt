@@ -39,16 +39,6 @@ interface RemoteKeysDao {
     @Query("DELETE FROM remote_keys")
     suspend fun clearRemoteKeys()
 
-    /**
-     * Retrieves the creation timestamp for the [RemoteKeys] of a specific character ID.
-     *
-     * @param characterId The ID of the character.
-     * @return The creation timestamp as a [Long] if found, otherwise null.
-     */
-    @Query("SELECT created_at FROM remote_keys WHERE characterId = :characterId")
-    suspend fun getCreationTime(characterId: Int): Long?
-
-
     @Query("SELECT MAX(created_at) FROM remote_keys")
     suspend fun getLatestCreationTime(): Long?
 }

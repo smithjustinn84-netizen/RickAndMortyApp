@@ -10,7 +10,7 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteK
 /**
  * The Room database for this app.
  *
- * This database stores [io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity] and [io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteKeys] entities.
+ * This database stores [CharacterEntity] and [RemoteKeys] entities.
  * Version: 1
  * Export Schema: false
  */
