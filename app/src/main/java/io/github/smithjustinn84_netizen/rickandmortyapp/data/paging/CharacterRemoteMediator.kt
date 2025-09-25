@@ -1,7 +1,7 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.data.paging
 
 import android.content.Context
-import android.util.Log
+import androidx.core.net.toUri
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -9,16 +9,16 @@ import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import coil3.SingletonImageLoader
 import coil3.request.ImageRequest
-import kotlinx.io.IOException
-import java.net.UnknownHostException
-import java.util.concurrent.TimeUnit
-import androidx.core.net.toUri
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.AppDatabase
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteKeys
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.mappers.toEntities
+import io.github.smithjustinn84_netizen.rickandmortyapp.data.paging.CharacterRemoteMediator.Companion.STARTING_PAGE_INDEX
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.ApiCharacter
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.NetworkDataSource
+import kotlinx.io.IOException
+import java.net.UnknownHostException
+import java.util.concurrent.TimeUnit
 
 /**
  * A [RemoteMediator] for loading characters from the network and saving them to the local database.
@@ -71,7 +71,6 @@ class CharacterRemoteMediator(
         state: PagingState<Int, CharacterEntity>,
     ): MediatorResult {
         try {
-            Log.d("CharacterRemoteMediator", "loadType: $loadType")
             val pageToFetch: Int = when (loadType) {
                 LoadType.REFRESH -> {
                     val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
