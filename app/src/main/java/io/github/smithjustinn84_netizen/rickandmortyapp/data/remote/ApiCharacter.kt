@@ -61,15 +61,11 @@ data class Location(
 /**
  * Represents pagination information from the API.
  *
- * @property count The total number of available results.
- * @property pages The total number of pages.
  * @property next Link to the next page of results, if available.
  * @property prev Link to the previous page of results, if available.
  */
 @Serializable
 data class Info(
-    val count: Int,
-    val pages: Int,
     val next: String? = null,
     val prev: String? = null
 )
