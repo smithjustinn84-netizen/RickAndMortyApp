@@ -10,10 +10,11 @@ import androidx.room.withTransaction
 import coil3.SingletonImageLoader
 import coil3.request.ImageRequest
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.AppDatabase
+import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.CharacterDao
+import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.RemoteKeysDao
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteKeys
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.mappers.toEntities
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.paging.CharacterRemoteMediator.Companion.STARTING_PAGE_INDEX
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.ApiCharacter
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.NetworkDataSource
 import kotlinx.io.IOException
@@ -31,8 +32,7 @@ import java.util.concurrent.TimeUnit
  * - Preloading character images using Coil for a smoother user experience.
  *
  * @property context The application [Context], used for preloading images.
- * @property database The [AppDatabase] instance for accessing DAOs
- *([io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.CharacterDao] and [io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.RemoteKeysDao]).
+ * @property database The [AppDatabase] instance for accessing DAOs ([CharacterDao] and [RemoteKeysDao]).
  * @property networkService The [NetworkDataSource] for fetching character data from the remote API.
  */
 @OptIn(ExperimentalPagingApi::class)
@@ -45,6 +45,8 @@ class CharacterRemoteMediator(
     companion object {
         /** The starting page index for API requests when no previous pagination key is available. */
         private const val STARTING_PAGE_INDEX = 1
+        /** Cache timeout in milliseconds (e.g., 1 hour). */
+        private val CACHE_TIMEOUT_MS = TimeUnit.HOURS.toMillis(1)
     }
 
     private val userDao = database.characterDao()
@@ -161,9 +163,6 @@ class CharacterRemoteMediator(
      *         otherwise [InitializeAction.SKIP_INITIAL_REFRESH].
      */
     override suspend fun initialize(): InitializeAction {
-        // Define cache timeout (e.g., 1 hour).
-        val cacheTimeoutMillis = TimeUnit.HOURS.toMillis(1)
-
         // Get the timestamp of the last data update from RemoteKeysDao.
         val lastUpdated = database.remoteKeysDao().getLatestCreationTime()
 
@@ -174,7 +173,7 @@ class CharacterRemoteMediator(
         }
 
         // If cache is older than the defined timeout, trigger a refresh.
-        val isCacheStale = (System.currentTimeMillis() - lastUpdated) > cacheTimeoutMillis
+        val isCacheStale = (System.currentTimeMillis() - lastUpdated) > CACHE_TIMEOUT_MS
         return if (isCacheStale) {
             InitializeAction.LAUNCH_INITIAL_REFRESH
         } else {
