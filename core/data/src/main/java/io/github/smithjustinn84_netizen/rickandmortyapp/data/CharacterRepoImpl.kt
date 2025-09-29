@@ -7,7 +7,7 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.Charact
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.mappers.toDomain
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.CharacterRepo
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.model.Character
-import io.github.smithjustinn84_netizen.rickandmortyapp.extensions.mapPagingDataItems
+import io.github.smithjustinn84_netizen.rickandmortyapp.data.paging.mapPagingDataItems
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

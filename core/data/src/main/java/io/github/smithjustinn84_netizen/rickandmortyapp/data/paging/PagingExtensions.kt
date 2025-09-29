@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.extensions
+package io.github.smithjustinn84_netizen.rickandmortyapp.data.paging
 
 import androidx.paging.PagingData
 import androidx.paging.map

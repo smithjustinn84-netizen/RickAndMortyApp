@@ -42,8 +42,7 @@ fun pager(
     ),
     remoteMediator = CharacterRemoteMediator(
         database = appDatabase,
-        networkService = networkDataSource,
-        context = applicationContext
+        networkService = networkDataSource
     ),
     pagingSourceFactory = {
         appDatabase.characterDao().pagingSource()
