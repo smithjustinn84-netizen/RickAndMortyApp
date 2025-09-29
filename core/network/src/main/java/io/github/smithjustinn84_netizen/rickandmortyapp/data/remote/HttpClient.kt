@@ -12,6 +12,7 @@ import io.ktor.client.plugins.resources.Resources
 import io.ktor.http.ContentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import io.ktor.client.engine.okhttp.*
 
 /**
  * Creates and configures an [HttpClient] for making network requests.
@@ -26,11 +27,12 @@ import kotlinx.serialization.json.Json
  * @return A configured [HttpClient] instance.
  */
 fun httpClient(): HttpClient {
-    return HttpClient {
+    return HttpClient(OkHttp) {
         install(ContentNegotiation) {
             json(
                 Json {
-                    prettyPrint = true
+                    // Avoid unnecessary JSON pretty printing for performance
+                    prettyPrint = false
                     ignoreUnknownKeys = true
                     isLenient = true
                 },
@@ -39,7 +41,8 @@ fun httpClient(): HttpClient {
         }
         install(Logging) {
             logger = Logger.ANDROID
-            level = LogLevel.ALL
+            // Reduce logging verbosity to decrease overhead and potential jank
+            level = LogLevel.HEADERS
         }
         install(Resources)
         install(HttpRequestRetry) {

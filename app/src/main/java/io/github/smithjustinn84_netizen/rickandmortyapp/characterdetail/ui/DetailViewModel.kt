@@ -7,11 +7,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.toUi
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.usecases.GetCharacterUseCase
 import jakarta.inject.Inject
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * ViewModel for the character detail screen.
@@ -52,16 +54,20 @@ class DetailViewModel @Inject constructor(
      * @param id The ID of the character to fetch.
      */
     private fun fetchCharacter(id: Int) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             try {
                 val character = getCharacterUseCase(id)
-                _uiState.update {
-                    DetailUiState.Success(character.toUi()  )
+                withContext(Dispatchers.Main) {
+                    _uiState.update {
+                        DetailUiState.Success(character.toUi())
+                    }
                 }
             } catch (e: Exception) {
                 val errorMessage = e.message?.takeIf { it.isNotBlank() } ?: "An unknown error occurred."
-                _uiState.update {
-                    DetailUiState.Error(errorMessage)
+                withContext(Dispatchers.Main) {
+                    _uiState.update {
+                        DetailUiState.Error(errorMessage)
+                    }
                 }
             }
         }
