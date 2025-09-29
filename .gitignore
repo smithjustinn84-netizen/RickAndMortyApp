@@ -2,7 +2,6 @@
 *.iml
 .gradle/
 local.properties
-/local.properties
 
 # IDE settings
 .idea/
@@ -30,3 +29,8 @@ local.properties
 # Keystores (DO NOT commit signing keys)
 *.jks
 *.keystore
+keystore.properties
+
+# Editor/OS files
+.vscode/
+*.log

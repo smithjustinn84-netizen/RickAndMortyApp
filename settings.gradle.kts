@@ -22,4 +22,5 @@ dependencyResolutionManagement {
 rootProject.name = "rickandmortyapp"
 include(":app")
 include(":core:network")
+include(":core:database")
  

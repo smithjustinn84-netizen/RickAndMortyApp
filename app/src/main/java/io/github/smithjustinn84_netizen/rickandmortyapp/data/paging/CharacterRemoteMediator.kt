@@ -85,21 +85,19 @@ class CharacterRemoteMediator(
                     val remoteKeys = getRemoteKeyForFirstItem(state)
                     // If prevKey is null, it means we're at the beginning of the list.
                     val prevKey = remoteKeys?.prevKey
+                    if (prevKey == null) {
+                        return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
+                    }
                     prevKey
-                        ?: return MediatorResult.Success(endOfPaginationReached = remoteKeys != null)
                 }
 
                 LoadType.APPEND -> {
                     val remoteKeys = getRemoteKeyForLastItem(state)
-                    // If nextKey is null, it means we're at the end of the list or list is empty.
-                    if (remoteKeys?.nextKey != null) {
-                        remoteKeys.nextKey
-                    } else if (remoteKeys == null && state.pages.all { it.data.isEmpty() }) {
-                        // Initial load or load after a full clear where no items were previously loaded.
-                        STARTING_PAGE_INDEX
-                    } else {
-                        // End of pagination reached if nextKey is null and list wasn't empty initially.
-                        return MediatorResult.Success(endOfPaginationReached = true)
+                    val nextKey = remoteKeys?.nextKey
+                    when {
+                        nextKey != null -> nextKey
+                        remoteKeys == null && state.pages.all { it.data.isEmpty() } -> STARTING_PAGE_INDEX
+                        else -> return MediatorResult.Success(endOfPaginationReached = true)
                     }
                 }
             }

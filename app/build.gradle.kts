@@ -49,6 +49,7 @@ android {
 dependencies {
 
   implementation(project(":core:network"))
+  implementation(project(":core:database"))
 
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -73,12 +74,6 @@ dependencies {
   // Paging
   implementation(libs.androidx.paging.runtime)
   implementation(libs.androidx.paging.compose)
-
-  // Room
-  implementation(libs.androidx.room.runtime)
-  ksp(libs.androidx.room.compiler)
-  implementation(libs.androidx.room.ktx)
-  implementation(libs.androidx.room.paging)
 
   testImplementation(libs.junit)
   androidTestImplementation(libs.androidx.junit)
