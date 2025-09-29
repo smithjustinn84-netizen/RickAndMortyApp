@@ -7,11 +7,9 @@ import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Character
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.toUi
-import io.github.smithjustinn84_netizen.rickandmortyapp.domain.usecases.GetCharactersUseCase
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.paging.mapPagingDataItems
-import kotlinx.coroutines.Dispatchers
+import io.github.smithjustinn84_netizen.rickandmortyapp.domain.usecases.GetCharactersUseCase
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 /**
@@ -35,6 +33,5 @@ class CharacterViewModel @Inject constructor(
         .mapPagingDataItems {
             domainCharacter -> domainCharacter.toUi()
         }
-        .flowOn(Dispatchers.IO)
         .cachedIn(viewModelScope)
 }

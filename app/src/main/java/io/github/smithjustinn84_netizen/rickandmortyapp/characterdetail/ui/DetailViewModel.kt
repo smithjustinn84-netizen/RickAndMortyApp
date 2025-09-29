@@ -7,7 +7,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.toUi
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.usecases.GetCharacterUseCase
 import jakarta.inject.Inject
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -53,7 +52,7 @@ class DetailViewModel @Inject constructor(
      * @param id The ID of the character to fetch.
      */
     private fun fetchCharacter(id: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             try {
                 val character = getCharacterUseCase(id)
                 _uiState.update {
