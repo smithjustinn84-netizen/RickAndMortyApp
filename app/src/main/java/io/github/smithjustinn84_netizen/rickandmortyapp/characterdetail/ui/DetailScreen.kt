@@ -22,7 +22,7 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ErrorScre
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.LoadingScreen
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.previewHandler
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.theme.RickAndMortyTheme
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme.RickAndMortyTheme
 
 /**
  * Composable function that displays the character detail screen.

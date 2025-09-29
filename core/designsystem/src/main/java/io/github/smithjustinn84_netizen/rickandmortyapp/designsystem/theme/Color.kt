@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.ui.theme
+package io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 

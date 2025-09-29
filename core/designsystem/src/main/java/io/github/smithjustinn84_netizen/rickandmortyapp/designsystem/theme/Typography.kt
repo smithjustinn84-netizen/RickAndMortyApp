@@ -1,23 +1,18 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.ui.theme
+package io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme
 
-import io.github.smithjustinn84_netizen.rickandmortyapp.R
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.R
 
-// Define the Roboto font family
 val Roboto = FontFamily(
     Font(R.font.roboto_mono, FontWeight.Normal),
     Font(R.font.roboto_mono_medium, FontWeight.Medium)
 )
 
-/**
- * Defines the typography for the application, including styles for different text elements.
- * This instance of [Typography] is used by the Material 3 theme.
- */
 val Typography = Typography(
     displayLarge = TextStyle(
         fontFamily = Roboto,

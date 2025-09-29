@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.theme.RickAndMortyTheme
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme.RickAndMortyTheme
 
 /**
  * The main activity for the Rick and Morty application.

@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.ui.theme
+package io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -6,9 +6,6 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-/**
- * Defines the dark color scheme for the application
- */
 private val DarkColorScheme = darkColorScheme(
     primary = PrimaryColor,
     onPrimary = White,
@@ -25,9 +22,6 @@ private val DarkColorScheme = darkColorScheme(
     onSurfaceVariant = LightGray
 )
 
-/**
- * Defines the light color scheme for the application
- */
 private val LightColorScheme = lightColorScheme(
     primary = PrimaryColor,
     onPrimary = White,
@@ -44,26 +38,12 @@ private val LightColorScheme = lightColorScheme(
     onSurfaceVariant = Black
 )
 
-/**
- * The main theme for the RickAndMorty application.
- *
- * This composable function applies the appropriate color scheme (light or dark)
- * based on the system settings or the [darkTheme] parameter. It also applies
- * the custom [Typography] defined for the application.
- *
- * @param darkTheme Whether to use the dark color scheme. Defaults to the system's dark theme setting.
- * @param content The composable content to which this theme will be applied.
- */
 @Composable
 fun RickAndMortyTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) {
-        DarkColorScheme
-    } else {
-        LightColorScheme
-    }
+    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     MaterialTheme(
         colorScheme = colorScheme,
