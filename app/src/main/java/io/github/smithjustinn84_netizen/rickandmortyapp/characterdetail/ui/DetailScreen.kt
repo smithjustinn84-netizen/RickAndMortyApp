@@ -18,9 +18,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.annotation.ExperimentalCoilApi
 import coil3.compose.LocalAsyncImagePreviewHandler
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.previewCharacter
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ErrorScreen
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.LoadingScreen
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ProvidePreview
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.ErrorState
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.Loading
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.previewHandler
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme.RickAndMortyTheme
 
@@ -78,7 +78,7 @@ fun DetailScreen(
         }
 
         is DetailUiState.Error -> {
-            ErrorScreen(
+            ErrorState(
                 message = state.message,
                 modifier = Modifier
                     .padding(paddingValues)
@@ -87,7 +87,7 @@ fun DetailScreen(
         }
 
         DetailUiState.Loading -> {
-            LoadingScreen(
+            Loading(
                 modifier = Modifier
                     .padding(paddingValues)
                     .fillMaxSize()

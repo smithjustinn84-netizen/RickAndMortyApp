@@ -22,13 +22,13 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ErrorScreen
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.LoadingScreen
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.ErrorState
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.Loading
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.Notification
 import kotlinx.coroutines.flow.MutableStateFlow
 import io.github.smithjustinn84_netizen.rickandmortyapp.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.previewCharacters
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ProvidePreview
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Character
 import coil3.imageLoader
 import coil3.request.ImageRequest
@@ -64,18 +64,21 @@ fun CharacterScreen(
 
         when (refreshState) {
             is LoadState.Loading -> {
-                LoadingScreen(
+                Loading(
                     modifier = Modifier
                         .padding(innerPadding)
-                        .fillMaxSize()
+                        .fillMaxSize(),
+                    label = stringResource(R.string.loading)
                 )
             }
 
             is LoadState.Error -> {
-                ErrorScreen(
+                ErrorState(
+                    message = stringResource(R.string.error_generic),
                     modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxSize(),
+                    retryLabel = stringResource(R.string.retry),
                     onRetry = { lazyPagingItems.retry() }
                 )
             }
