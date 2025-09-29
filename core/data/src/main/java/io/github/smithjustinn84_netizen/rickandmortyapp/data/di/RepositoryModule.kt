@@ -1,11 +1,11 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.di
+package io.github.smithjustinn84_netizen.rickandmortyapp.data.di
 
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.CharacterRepoImpl
-import io.github.smithjustinn84_netizen.rickandmortyapp.domain.CharacterRepo
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.github.smithjustinn84_netizen.rickandmortyapp.data.CharacterRepoImpl
+import io.github.smithjustinn84_netizen.rickandmortyapp.domain.CharacterRepo
 import javax.inject.Singleton
 
 /**

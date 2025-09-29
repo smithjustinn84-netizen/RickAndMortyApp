@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.di
+package io.github.smithjustinn84_netizen.rickandmortyapp.network.di
 
 import dagger.Binds
 import dagger.Module

@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -27,4 +29,10 @@ dependencies {
     implementation(libs.bundles.ktor)
 
     implementation(libs.javax.inject)
+
+    // Hilt runtime (brings in Dagger and required runtime types)
+    implementation(libs.hilt.android.core)
+
+    // Hilt compiler to generate factories for @Inject constructors and modules in this module
+    ksp(libs.hilt.compiler)
 }
