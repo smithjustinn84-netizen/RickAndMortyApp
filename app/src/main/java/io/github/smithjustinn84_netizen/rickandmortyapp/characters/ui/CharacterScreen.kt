@@ -30,6 +30,10 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.previewCharacters
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Character
+import coil3.imageLoader
+import coil3.request.ImageRequest
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
 
 
 /**
@@ -111,6 +115,24 @@ fun CharacterContent(
     modifier: Modifier = Modifier,
     onClick: (Int) -> Unit = {}
 ) {
+    // Preload character images with Coil for currently loaded items to improve scroll performance.
+    // This runs whenever the snapshot of loaded items changes and only fetches URLs not seen before.
+    val context = LocalContext.current
+    val imageLoader = context.imageLoader
+    val preloaded = remember { mutableSetOf<String>() }
+    val snapshot = characters.itemSnapshotList.items
+    LaunchedEffect(snapshot) {
+        snapshot.forEach { item ->
+            val url = item.image
+            if (preloaded.add(url)) {
+                val request = ImageRequest.Builder(context)
+                    .data(url)
+                    .build()
+                imageLoader.enqueue(request)
+            }
+        }
+    }
+
     Column(modifier = modifier) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
             item { CharacterHeader() }
