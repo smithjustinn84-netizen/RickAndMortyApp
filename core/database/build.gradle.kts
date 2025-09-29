@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -35,4 +36,8 @@ dependencies {
 
     // javax.inject (optional but common in core modules)
     implementation(libs.javax.inject)
+
+    // Hilt runtime and compiler for DI modules in this library
+    implementation(libs.hilt.android.core)
+    ksp(libs.hilt.compiler)
 }
