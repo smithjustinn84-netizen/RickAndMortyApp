@@ -1,15 +1,32 @@
+# Android/Gradle standard ignores
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+.gradle/
 local.properties
+/local.properties
+
+# IDE settings
+.idea/
+.DS_Store
+
+# Build outputs (root and all modules)
+/build/
+**/build/
+
+# NDK/CMake
+.externalNativeBuild/
+.cxx/
+
+# Captures
+/captures/
+
+# Compiled class files
+*.class
+
+# Android artifacts
+*.apk
+*.ap_
+*.aab
+
+# Keystores (DO NOT commit signing keys)
+*.jks
+*.keystore

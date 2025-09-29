@@ -48,6 +48,8 @@ android {
 
 dependencies {
 
+  implementation(project(":core:network"))
+
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.activity.compose)
@@ -59,9 +61,6 @@ dependencies {
   implementation(libs.androidx.compose.material.icons.core)
   implementation(libs.androidx.compose.material.icons.extended)
 
-  // Serialization
-  implementation(libs.kotlinx.serialization.json)
-
   // Hilt
   implementation(libs.hilt.android.core)
   implementation(libs.androidx.hilt.navigation.compose)
@@ -70,15 +69,6 @@ dependencies {
   // Coil
   implementation(libs.coil.compose)
   implementation(libs.coil.network.ktor3)
-  implementation(libs.ktor.client.android)
-
-  // Ktor
-  implementation(libs.ktor.client.core)
-  implementation(libs.ktor.client.content.negotiation)
-  implementation(libs.ktor.client.okhttp)
-  implementation(libs.ktor.serialization.kotlinx.json)
-  implementation(libs.ktor.client.logging)
-  implementation(libs.ktor.client.resources)
 
   // Paging
   implementation(libs.androidx.paging.runtime)
