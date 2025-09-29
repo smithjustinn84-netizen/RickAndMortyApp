@@ -13,8 +13,8 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.createAppData
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.CharacterDao
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.paging.pager
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.NetworkDataSource
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.httpClient
+import io.github.smithjustinn84_netizen.rickandmortyapp.network.NetworkDataSource
+import io.github.smithjustinn84_netizen.rickandmortyapp.network.httpClient
 import io.ktor.client.HttpClient
 import javax.inject.Singleton
 

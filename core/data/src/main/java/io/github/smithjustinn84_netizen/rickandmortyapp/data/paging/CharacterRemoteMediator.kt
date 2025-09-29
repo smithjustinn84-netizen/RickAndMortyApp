@@ -10,7 +10,7 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.AppDatabase
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteKeys
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.mappers.toEntities
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.NetworkDataSource
+import io.github.smithjustinn84_netizen.rickandmortyapp.network.NetworkDataSource
 import java.io.IOException
 import java.net.UnknownHostException
 import java.util.concurrent.TimeUnit

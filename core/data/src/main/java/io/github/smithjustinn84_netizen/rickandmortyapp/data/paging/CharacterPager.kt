@@ -6,7 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.AppDatabase
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.NetworkDataSource
+import io.github.smithjustinn84_netizen.rickandmortyapp.network.NetworkDataSource
 
 private const val DEFAULT_PAGE_SIZE = 20
 private const val DEFAULT_PREFETCH_DISTANCE = DEFAULT_PAGE_SIZE

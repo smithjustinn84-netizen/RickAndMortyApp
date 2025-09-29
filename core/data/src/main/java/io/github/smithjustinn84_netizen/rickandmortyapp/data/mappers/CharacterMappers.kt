@@ -1,7 +1,7 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.data.mappers
 
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.ApiCharacter
+import io.github.smithjustinn84_netizen.rickandmortyapp.network.ApiCharacter
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.model.Character
 
 /**

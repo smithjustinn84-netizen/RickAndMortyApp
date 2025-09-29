@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.data.remote
+package io.github.smithjustinn84_netizen.rickandmortyapp.network
 
 import kotlinx.serialization.Serializable
 

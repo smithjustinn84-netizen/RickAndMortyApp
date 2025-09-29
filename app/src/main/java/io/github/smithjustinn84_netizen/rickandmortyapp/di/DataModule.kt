@@ -4,8 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.CharacterNetworkDataSource
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.remote.NetworkDataSource
+import io.github.smithjustinn84_netizen.rickandmortyapp.network.CharacterNetworkDataSource
+import io.github.smithjustinn84_netizen.rickandmortyapp.network.NetworkDataSource
 import javax.inject.Singleton
 
 /**
