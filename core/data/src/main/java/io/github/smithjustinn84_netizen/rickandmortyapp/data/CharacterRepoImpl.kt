@@ -2,8 +2,8 @@ package io.github.smithjustinn84_netizen.rickandmortyapp.data
 
 import androidx.paging.Pager
 import androidx.paging.PagingData
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.CharacterDao
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.dao.CharacterDao
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.CharacterEntity
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.mappers.toDomain
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.CharacterRepo
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.model.Character

@@ -1,11 +1,11 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.data.local
+package io.github.smithjustinn84_netizen.rickandmortyapp.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.CharacterDao
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.RemoteKeysDao
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteKeys
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.dao.CharacterDao
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.dao.RemoteKeysDao
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.CharacterEntity
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.RemoteKeys
 
 /**
  * The Room database for this app.

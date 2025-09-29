@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.data.local
+package io.github.smithjustinn84_netizen.rickandmortyapp.database
 
 import android.content.Context
 import androidx.room.Room

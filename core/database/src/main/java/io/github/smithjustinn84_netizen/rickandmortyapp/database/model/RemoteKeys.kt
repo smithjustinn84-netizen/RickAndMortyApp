@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model
+package io.github.smithjustinn84_netizen.rickandmortyapp.database.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

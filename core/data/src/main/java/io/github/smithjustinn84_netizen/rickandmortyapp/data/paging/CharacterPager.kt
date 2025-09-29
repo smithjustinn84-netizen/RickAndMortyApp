@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.AppDatabase
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.AppDatabase
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.CharacterEntity
 import io.github.smithjustinn84_netizen.rickandmortyapp.network.NetworkDataSource
 
 private const val DEFAULT_PAGE_SIZE = 20

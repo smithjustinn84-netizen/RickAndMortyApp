@@ -1,10 +1,10 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao
+package io.github.smithjustinn84_netizen.rickandmortyapp.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteKeys
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.RemoteKeys
 
 /**
  * Data Access Object (DAO) for [RemoteKeys] entities.

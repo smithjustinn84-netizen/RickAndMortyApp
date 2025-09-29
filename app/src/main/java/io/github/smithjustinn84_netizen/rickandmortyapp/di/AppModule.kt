@@ -8,10 +8,10 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.AppDatabase
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.createAppDatabase
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao.CharacterDao
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.AppDatabase
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.createAppDatabase
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.dao.CharacterDao
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.CharacterEntity
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.paging.pager
 import io.github.smithjustinn84_netizen.rickandmortyapp.network.NetworkDataSource
 import io.github.smithjustinn84_netizen.rickandmortyapp.network.httpClient

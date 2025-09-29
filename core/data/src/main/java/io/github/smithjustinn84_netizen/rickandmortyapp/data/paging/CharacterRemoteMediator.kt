@@ -6,9 +6,9 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.AppDatabase
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.RemoteKeys
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.AppDatabase
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.CharacterEntity
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.RemoteKeys
 import io.github.smithjustinn84_netizen.rickandmortyapp.data.mappers.toEntities
 import io.github.smithjustinn84_netizen.rickandmortyapp.network.NetworkDataSource
 import java.io.IOException

@@ -1,10 +1,10 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.data.local.dao
+package io.github.smithjustinn84_netizen.rickandmortyapp.database.dao
 
 import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
-import io.github.smithjustinn84_netizen.rickandmortyapp.data.local.model.CharacterEntity
+import io.github.smithjustinn84_netizen.rickandmortyapp.database.model.CharacterEntity
 
 /**
  * Data Access Object (DAO) for the `character` table.
