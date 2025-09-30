@@ -1,7 +1,5 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characters.model
 
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.model.Status
-
 
 /**
  * Represents a character in the UI layer.

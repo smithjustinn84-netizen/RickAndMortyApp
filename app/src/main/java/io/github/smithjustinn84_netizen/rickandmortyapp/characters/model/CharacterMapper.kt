@@ -1,6 +1,5 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characters.model
 
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.model.Status
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.model.Character as DomainCharacter
 
 /**

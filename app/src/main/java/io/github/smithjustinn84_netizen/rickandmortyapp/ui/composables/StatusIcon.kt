@@ -5,7 +5,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.model.Status
+import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Status
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme.RickAndMortyTheme
 
 /**

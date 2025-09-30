@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.ui.model
+package io.github.smithjustinn84_netizen.rickandmortyapp.characters.model
 
 enum class Status {
     UNKNOWN,

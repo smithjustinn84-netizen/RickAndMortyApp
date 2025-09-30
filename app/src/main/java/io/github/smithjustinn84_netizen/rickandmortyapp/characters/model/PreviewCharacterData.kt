@@ -1,7 +1,5 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characters.model
 
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.model.Status
-
 /**
  * A list of preview characters for UI development and testing.
  */

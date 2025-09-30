@@ -1,8 +1,8 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model
 
+import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Gender
+import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Status
 import io.github.smithjustinn84_netizen.rickandmortyapp.domain.model.Character as DomainCharacter
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.model.Gender
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.model.Status
 
 /**
  * Maps a [DomainCharacter] from the domain layer to a [Character] in the presentation layer.
