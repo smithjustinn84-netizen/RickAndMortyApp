@@ -26,7 +26,7 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.E
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.Loading
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.Notification
 import kotlinx.coroutines.flow.MutableStateFlow
-import io.github.smithjustinn84_netizen.rickandmortyapp.R
+import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.previewCharacters
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Character
@@ -35,7 +35,6 @@ import coil3.request.ImageRequest
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 
-
 /**
  * Composable function that displays the main character listing screen.
  * It handles loading states (refresh, append errors) and displays either an error screen,
@@ -43,7 +42,7 @@ import androidx.compose.ui.platform.LocalContext
  *
  * @param modifier Modifier for this composable, applied to the Scaffold.
  * @param viewModel The [CharacterViewModel] used to fetch character data.
- * @param onClick Callback invoked when a character row is clicked, providing the character\'s ID.
+ * @param onClick Callback invoked when a character row is clicked, providing the character's ID.
  */
 @Composable
 fun CharacterScreen(
@@ -110,7 +109,7 @@ fun CharacterScreen(
  *
  * @param characters The [LazyPagingItems] containing the character data.
  * @param modifier Modifier for this composable. This will include padding from the Scaffold.
- * @param onClick Callback invoked when a character row is clicked, providing the character\'s ID.
+ * @param onClick Callback invoked when a character row is clicked, providing the character's ID.
  */
 @Composable
 fun CharacterContent(
@@ -184,4 +183,3 @@ fun CharacterContentDarkPreview() {
         )
     }
 }
-

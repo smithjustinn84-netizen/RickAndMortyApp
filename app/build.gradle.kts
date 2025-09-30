@@ -53,6 +53,7 @@ dependencies {
   implementation(project(":core:domain"))
   implementation(project(":core:data"))
   implementation(project(":core:designsystem"))
+  implementation(project(":feature:characters"))
 
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -62,9 +63,6 @@ dependencies {
   implementation(libs.androidx.ui.graphics)
   implementation(libs.androidx.ui.tooling.preview)
   implementation(libs.androidx.material3)
-  implementation(libs.androidx.compose.material.icons.core)
-  implementation(libs.androidx.compose.material.icons.extended)
-
   // Hilt
   implementation(libs.hilt.android.core)
   implementation(libs.androidx.hilt.navigation.compose)

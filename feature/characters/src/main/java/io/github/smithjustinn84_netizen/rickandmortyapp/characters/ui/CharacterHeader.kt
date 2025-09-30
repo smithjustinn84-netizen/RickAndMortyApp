@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.github.smithjustinn84_netizen.rickandmortyapp.R
+import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
 
 /**

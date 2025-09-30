@@ -1,6 +1,5 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characters.model
 
-
 /**
  * Represents a character in the UI layer.
  *

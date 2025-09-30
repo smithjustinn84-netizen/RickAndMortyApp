@@ -1,6 +1,6 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.ui
 
-import io.github.smithjustinn84_netizen.rickandmortyapp.R
+import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.previewCharacter
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.Character
 import android.content.res.Configuration
@@ -146,45 +146,8 @@ private fun CompactDetailView(character: Character) {
     }
 }
 
-/**
- * Displays the character's image using AsyncImage.
- *
- * @param imageUrl URL of the character's image.
- * @param characterName Name of the character, used for content description.
- * @param modifier Modifier for this composable.
- */
-@OptIn(ExperimentalCoilApi::class)
 @Composable
-private fun CharacterImage(
-    imageUrl: String,
-    characterName: String,
-    modifier: Modifier = Modifier
-) {
-    CompositionLocalProvider(LocalAsyncImagePreviewHandler provides previewHandler) {
-        AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(imageUrl)
-                .crossfade(true)
-                .build(),
-            contentDescription = stringResource(R.string.image_description, characterName),
-            contentScale = ContentScale.Crop,
-            modifier = modifier.clip(RoundedCornerShape(16.dp))
-        )
-    }
-}
-
-/**
- * Composable that groups and displays all character details using [DetailItem].
- *
- * @param character The [Character] data.
- * @param textAlign Default [TextAlign] for the character's name and items in vertical layout.
- * @param labelTextStyle [TextStyle] for the labels in [DetailItem].
- * @param valueTextStyle [TextStyle] for the values in [DetailItem].
- * @param spacing [Dp] spacing between detail items.
- * @param isItemLayoutHorizontal If true, [DetailItem]s are laid out horizontally.
- */
-@Composable
-private fun Details(
+fun Details(
     character: Character,
     textAlign: TextAlign,
     labelTextStyle: TextStyle,
@@ -192,107 +155,120 @@ private fun Details(
     spacing: Dp,
     isItemLayoutHorizontal: Boolean,
 ) {
-    Spacer(modifier = Modifier.height(spacing))
-    DetailItem(
-        labelString = stringResource(R.string.character_detail_status_label),
-        value = character.status.toString(),
-        labelTextStyle = labelTextStyle,
-        valueTextStyle = valueTextStyle,
-    )
-    Spacer(modifier = Modifier.height(spacing))
-    DetailItem(
-        labelString = stringResource(R.string.character_detail_species_label),
-        value = character.species,
-        labelTextStyle = labelTextStyle,
-        valueTextStyle = valueTextStyle,
-    )
-    Spacer(modifier = Modifier.height(spacing))
-    DetailItem(
-        labelString = stringResource(R.string.character_detail_gender_label),
-        value = character.gender.toString(),
-        labelTextStyle = labelTextStyle,
-        valueTextStyle = valueTextStyle,
-    )
-    Spacer(modifier = Modifier.height(spacing))
-    DetailItem(
-        labelString = stringResource(R.string.character_detail_origin_label),
-        value = character.origin,
-        labelTextStyle = labelTextStyle,
-        valueTextStyle = valueTextStyle,
-    )
-    Spacer(modifier = Modifier.height(spacing))
-    DetailItem(
-        labelString = stringResource(R.string.character_detail_location_label),
-        value = character.location,
-        labelTextStyle = labelTextStyle,
-        valueTextStyle = valueTextStyle,
-    )
-    Spacer(modifier = Modifier.height(spacing))
-    DetailItem(
-        labelString = stringResource(R.string.character_detail_episodes_label),
-        value = character.episode.size.toString(),
-        labelTextStyle = labelTextStyle,
-        valueTextStyle = valueTextStyle,
-    )
+    Column(
+        horizontalAlignment = Alignment.Start
+    ) {
+        DetailItem(
+            label = stringResource(R.string.species),
+            value = character.species,
+            textAlign = textAlign,
+            labelTextStyle = labelTextStyle,
+            valueTextStyle = valueTextStyle,
+            spacing = spacing,
+            isHorizontal = isItemLayoutHorizontal
+        )
+        DetailItem(
+            label = stringResource(R.string.gender),
+            value = character.gender.toString(),
+            textAlign = textAlign,
+            labelTextStyle = labelTextStyle,
+            valueTextStyle = valueTextStyle,
+            spacing = spacing,
+            isHorizontal = isItemLayoutHorizontal
+        )
+        DetailItem(
+            label = stringResource(R.string.status),
+            value = character.status.toString(),
+            textAlign = textAlign,
+            labelTextStyle = labelTextStyle,
+            valueTextStyle = valueTextStyle,
+            spacing = spacing,
+            isHorizontal = isItemLayoutHorizontal
+        )
+        DetailItem(
+            label = stringResource(R.string.origin),
+            value = character.origin,
+            textAlign = textAlign,
+            labelTextStyle = labelTextStyle,
+            valueTextStyle = valueTextStyle,
+            spacing = spacing,
+            isHorizontal = isItemLayoutHorizontal
+        )
+        DetailItem(
+            label = stringResource(R.string.location),
+            value = character.location,
+            textAlign = textAlign,
+            labelTextStyle = labelTextStyle,
+            valueTextStyle = valueTextStyle,
+            spacing = spacing,
+            isHorizontal = isItemLayoutHorizontal
+        )
+    }
 }
 
-/**
- * Displays a label-value pair.
- *
- * @param labelString The string resource for the label.
- * @param value The string value to display.
- * @param labelTextStyle [TextStyle] for the label.
- * @param valueTextStyle [TextStyle] for the value.
- */
 @Composable
 private fun DetailItem(
-    labelString: String,
+    label: String,
     value: String,
+    textAlign: TextAlign,
     labelTextStyle: TextStyle,
     valueTextStyle: TextStyle,
+    spacing: Dp,
+    isHorizontal: Boolean,
 ) {
-    Text(
-        text = labelString,
-        style = labelTextStyle
-    )
-    Text(
-        text = value,
-        style = valueTextStyle
-    )
+    if (isHorizontal) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(text = "$label:", style = labelTextStyle)
+            Spacer(modifier = Modifier.width(spacing))
+            Text(text = value, style = valueTextStyle, textAlign = textAlign)
+        }
+    } else {
+        Column(
+            horizontalAlignment = Alignment.Start
+        ) {
+            Text(text = "$label:", style = labelTextStyle)
+            Spacer(modifier = Modifier.height(spacing))
+            Text(text = value, style = valueTextStyle, textAlign = textAlign)
+            Spacer(modifier = Modifier.height(spacing))
+        }
+    }
 }
 
-@Preview(showBackground = true)
+@OptIn(ExperimentalCoilApi::class)
 @Composable
-fun DetailViewPreview() {
+private fun CharacterImage(
+    imageUrl: String,
+    characterName: String,
+    modifier: Modifier = Modifier
+) {
+    val context = LocalContext.current
+    CompositionLocalProvider(LocalAsyncImagePreviewHandler provides previewHandler) {
+        AsyncImage(
+            model = ImageRequest.Builder(context)
+                .data(imageUrl)
+                .crossfade(true)
+                .build(),
+            contentDescription = characterName,
+            modifier = modifier
+                .clip(RoundedCornerShape(dimensionResource(R.dimen.detail_item_corner_radius))),
+            contentScale = ContentScale.Crop
+        )
+    }
+}
+
+@Preview(name = "Detail View - Light Mode", showBackground = true, widthDp = 360)
+@Composable
+fun DetailViewLightPreview() {
     ProvidePreview {
         DetailView(character = previewCharacter)
     }
 }
 
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(name = "Detail View - Dark Mode", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES, widthDp = 360)
 @Composable
-fun DetailViewPreviewDark() {
-    ProvidePreview {
-        DetailView(character = previewCharacter)
-    }
-}
-
-@Preview(showBackground = true, widthDp = 800, heightDp = 600)
-@Composable
-fun DetailViewPreviewWide() {
-    ProvidePreview {
-        DetailView(character = previewCharacter)
-    }
-}
-
-@Preview(
-    showBackground = true,
-    widthDp = 800,
-    heightDp = 600,
-    uiMode = Configuration.UI_MODE_NIGHT_YES
-)
-@Composable
-fun DetailViewPreviewWideDark() {
+fun DetailViewDarkPreview() {
     ProvidePreview {
         DetailView(character = previewCharacter)
     }

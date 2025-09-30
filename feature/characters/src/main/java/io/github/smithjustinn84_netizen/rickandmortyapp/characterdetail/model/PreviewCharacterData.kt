@@ -3,7 +3,6 @@ package io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Gender
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Status
 
-
 /**
  * A single sample [Character] object for use in previews and testing.
  */
