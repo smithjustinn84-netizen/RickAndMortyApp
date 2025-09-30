@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.ui
+package io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb

@@ -39,7 +39,7 @@ import coil3.compose.LocalAsyncImagePreviewHandler
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.previewHandler
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.previewHandler
 
 /**
  * Main composable for the Character Detail Screen.

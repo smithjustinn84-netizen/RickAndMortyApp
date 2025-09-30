@@ -19,7 +19,7 @@ import coil3.compose.AsyncImagePainter
 import coil3.compose.LocalAsyncImagePreviewHandler
 import coil3.compose.rememberAsyncImagePainter
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Character
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.previewHandler
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.previewHandler
 import io.github.smithjustinn84_netizen.rickandmortyapp.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.previewCharacter
 

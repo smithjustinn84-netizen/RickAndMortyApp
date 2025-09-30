@@ -21,7 +21,7 @@ import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.pr
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.ErrorState
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.Loading
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.previewHandler
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.previewHandler
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.theme.RickAndMortyTheme
 
 /**
