@@ -21,8 +21,7 @@ import coil3.annotation.ExperimentalCoilApi
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.Character
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.previewCharacter
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
-import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R.dimen.detail_item_spacing
-import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R.dimen.detail_padding
+import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R
 
 /**
  * Composable function that displays the main content of the detail screen,
@@ -41,7 +40,7 @@ fun DetailContent(
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
-            .padding(dimensionResource(detail_padding)),
+            .padding(dimensionResource(R.dimen.detail_padding)),
     ) {
         item {
             DetailHeader(
@@ -51,8 +50,10 @@ fun DetailContent(
             Row(
                 modifier = Modifier
                     .border(2.dp, character.status.color, shape = MaterialTheme.shapes.small)
-                    .padding(all = dimensionResource(detail_item_spacing))
-                ,
+                    .padding(
+                        horizontal = dimensionResource(R.dimen.detail_item_spacing),
+                        vertical = dimensionResource(R.dimen.vertical_margin)
+                    ),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
@@ -67,7 +68,7 @@ fun DetailContent(
         }
 
         item {
-            Spacer(modifier = Modifier.height(dimensionResource(detail_item_spacing)))
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.detail_item_spacing)))
         }
 
         item {
@@ -75,7 +76,7 @@ fun DetailContent(
                 imageUrl = character.image,
                 characterName = character.name,
             )
-            Spacer(modifier = Modifier.height(dimensionResource(detail_item_spacing)))
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.detail_item_spacing)))
         }
 
         item {
@@ -84,7 +85,7 @@ fun DetailContent(
                 textAlign = TextAlign.Start,
                 labelTextStyle = MaterialTheme.typography.labelMedium,
                 valueTextStyle = MaterialTheme.typography.titleMedium,
-                spacing = dimensionResource(detail_item_spacing),
+                spacing = dimensionResource(R.dimen.detail_item_spacing),
             )
         }
     }
