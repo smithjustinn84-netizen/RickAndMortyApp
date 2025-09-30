@@ -46,9 +46,11 @@ fun NavGraph(
 }
 
 /**
- * Interface representing a navigation destination in the application.
+ * Represents a navigation destination in the application.
+ * Declared as a sealed interface to enable exhaustiveness checks
+ * when used in `when` expressions, improving type safety.
  */
-interface Destination
+sealed interface Destination
 
 /**
  * Represents the navigation route for the character list screen.

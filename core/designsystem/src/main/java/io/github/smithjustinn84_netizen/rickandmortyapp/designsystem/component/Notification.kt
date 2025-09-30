@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables
+package io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component
 
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHostState
@@ -8,6 +8,8 @@ import androidx.compose.runtime.LaunchedEffect
 
 /**
  * Composable function that displays a Snackbar notification.
+ *
+ * This belongs in the design system so it can be reused across multiple features.
  *
  * @param snackbarHostState The [SnackbarHostState] to show the Snackbar.
  * @param message The text to show in the Snackbar.

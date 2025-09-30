@@ -24,7 +24,7 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.ErrorState
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.Loading
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.Notification
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.component.Notification
 import kotlinx.coroutines.flow.MutableStateFlow
 import io.github.smithjustinn84_netizen.rickandmortyapp.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.previewCharacters

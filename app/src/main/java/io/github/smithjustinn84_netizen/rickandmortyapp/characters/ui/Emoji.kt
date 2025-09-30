@@ -1,4 +1,4 @@
-package io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables
+package io.github.smithjustinn84_netizen.rickandmortyapp.characters.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.MaterialTheme
