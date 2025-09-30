@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import coil3.annotation.ExperimentalCoilApi
 import android.content.res.Configuration
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.Character
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.previewCharacter
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
 
 /**
  * Composable function that displays the main content of the detail screen,

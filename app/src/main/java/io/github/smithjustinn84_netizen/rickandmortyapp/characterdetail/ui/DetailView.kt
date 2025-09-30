@@ -38,7 +38,7 @@ import coil3.compose.AsyncImage
 import coil3.compose.LocalAsyncImagePreviewHandler
 import coil3.request.ImageRequest
 import coil3.request.crossfade
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ProvidePreview
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.previewHandler
 
 /**

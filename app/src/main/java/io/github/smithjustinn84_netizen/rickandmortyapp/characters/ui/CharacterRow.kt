@@ -22,10 +22,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.annotation.ExperimentalCoilApi
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.previewCharacter
-import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.ProvidePreview
 import io.github.smithjustinn84_netizen.rickandmortyapp.ui.composables.StatusIcon
 import io.github.smithjustinn84_netizen.rickandmortyapp.R
 import io.github.smithjustinn84_netizen.rickandmortyapp.characters.model.Character
+import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
 
 /**
  * Composable function that displays a single character row in the list.
