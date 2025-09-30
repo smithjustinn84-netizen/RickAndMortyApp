@@ -1,18 +1,28 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.ui
 
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Column
+import android.content.res.Configuration
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import coil3.annotation.ExperimentalCoilApi
-import android.content.res.Configuration
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.Character
 import io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.model.previewCharacter
 import io.github.smithjustinn84_netizen.rickandmortyapp.designsystem.preview.ProvidePreview
+import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R.dimen.detail_item_spacing
+import io.github.smithjustinn84_netizen.rickandmortyapp.feature.characters.R.dimen.detail_padding
 
 /**
  * Composable function that displays the main content of the detail screen,
@@ -28,20 +38,53 @@ fun DetailContent(
     modifier: Modifier = Modifier,
     onBackClick: () -> Unit
 ) {
-    BoxWithConstraints(modifier = modifier) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            if (this@BoxWithConstraints.maxHeight > this@BoxWithConstraints.maxWidth) {
-                DetailHeader(
-                    characterName = character.name,
-                    onBackClick = onBackClick,
-                    modifier = Modifier.fillMaxWidth()
+    LazyColumn(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(dimensionResource(detail_padding)),
+    ) {
+        item {
+            DetailHeader(
+                characterName = character.name,
+                onBackClick = onBackClick
+            )
+            Row(
+                modifier = Modifier
+                    .border(2.dp, character.status.color, shape = MaterialTheme.shapes.small)
+                    .padding(all = dimensionResource(detail_item_spacing))
+                ,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Status: ",
+                    style = MaterialTheme.typography.headlineSmall,
+                )
+                Text(
+                    text = character.status.name,
+                    style = MaterialTheme.typography.displaySmall,
                 )
             }
-            DetailView(
+        }
+
+        item {
+            Spacer(modifier = Modifier.height(dimensionResource(detail_item_spacing)))
+        }
+
+        item {
+            CharacterImage(
+                imageUrl = character.image,
+                characterName = character.name,
+            )
+            Spacer(modifier = Modifier.height(dimensionResource(detail_item_spacing)))
+        }
+
+        item {
+            Details(
                 character = character,
+                textAlign = TextAlign.Start,
+                labelTextStyle = MaterialTheme.typography.labelMedium,
+                valueTextStyle = MaterialTheme.typography.titleMedium,
+                spacing = dimensionResource(detail_item_spacing),
             )
         }
     }

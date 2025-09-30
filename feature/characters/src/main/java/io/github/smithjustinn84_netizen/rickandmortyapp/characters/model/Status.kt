@@ -1,5 +1,7 @@
 package io.github.smithjustinn84_netizen.rickandmortyapp.characters.model
 
+import androidx.compose.ui.graphics.Color
+
 enum class Status {
     UNKNOWN,
     ALIVE,
@@ -12,4 +14,11 @@ enum class Status {
             DEAD -> "Dead"
         }
     }
+
+    val color: Color
+        get() = when (this) {
+            UNKNOWN -> Color.Gray
+            ALIVE -> Color.Green
+            DEAD -> Color.Red
+        }
 }

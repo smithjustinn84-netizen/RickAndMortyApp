@@ -2,7 +2,6 @@ package io.github.smithjustinn84_netizen.rickandmortyapp.characterdetail.ui
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Icon
@@ -14,7 +13,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,8 +39,7 @@ fun DetailHeader(
         shadowElevation = 0.dp
     ) {
         Row(
-            modifier = Modifier
-                .padding(horizontal = dimensionResource(R.dimen.small_space)),
+            modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically,
         ) {
             IconButton(onClick = onBackClick) {

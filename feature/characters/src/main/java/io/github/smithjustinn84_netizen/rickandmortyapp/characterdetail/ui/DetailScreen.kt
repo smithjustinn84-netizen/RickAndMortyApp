@@ -70,9 +70,7 @@ fun DetailScreen(
         is DetailUiState.Success -> {
             DetailContent(
                 character = state.character,
-                modifier = Modifier
-                    .padding(paddingValues)
-                    .fillMaxSize(),
+                modifier = Modifier.padding(paddingValues),
                 onBackClick = onBackClick
             )
         }
