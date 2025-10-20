@@ -1,24 +1,25 @@
 [versions]
 agp = "8.13.0"
 coilCompose = "3.3.0"
+core = "1.7.0"
 javaxInject = "1"
 kotlin = "2.2.20"
 coreKtx = "1.17.0"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
-ktorClientLogging = "3.3.0"
-ktorClientResources = "3.3.0"
+ktorClientLogging = "3.3.1"
+ktorClientResources = "3.3.1"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
-composeBom = "2025.09.01"
-ktor = "3.3.0"
-hilt = "2.57.1"
+composeBom = "2025.10.00"
+ktor = "3.3.1"
+hilt = "2.57.2"
 ksp = "2.2.20-2.0.3"
 materialIconsCore = "1.7.8"
 pagingCompose = "3.3.6"
 androidxHiltNavigationCompose = "1.3.0"
-roomRuntime = "2.8.1"
+roomRuntime = "2.8.2"
 
 [libraries]
 # Coil
@@ -51,6 +52,7 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 # Testing
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-core = { module = "androidx.test:core", version.ref = "core" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
