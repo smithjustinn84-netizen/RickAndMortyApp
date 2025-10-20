@@ -1,8 +1,8 @@
 # 🧪 Rick and Morty App
 
 [![Android](https://img.shields.io/badge/Android-API%2029+-green.svg)](https://developer.android.com/about/versions/android-10.0)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.0+-blue.svg)](https://kotlinlang.org)
-[![Compose](https://img.shields.io/badge/Jetpack%20Compose-Latest-blue.svg)](https://developer.android.com/jetpack/compose)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.2.20-blue.svg)](https://kotlinlang.org)
+[![Compose](https://img.shields.io/badge/Jetpack%20Compose-2025.09.01-blue.svg)](https://developer.android.com/jetpack/compose)
 [![Architecture](https://img.shields.io/badge/Architecture-Clean%20Architecture-orange.svg)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 [![Hilt](https://img.shields.io/badge/DI-Hilt-brightgreen.svg)](https://dagger.dev/hilt/)
 [![Room](https://img.shields.io/badge/Database-Room-blue.svg)](https://developer.android.com/training/data-storage/room)
@@ -71,16 +71,16 @@ The app fetches data from the [Rick and Morty API](https://rickandmortyapi.com/)
 - **Repository Pattern** - Data access abstraction layer
 
 ### Libraries & Dependencies
-- **📦 Dependency Injection**: [Hilt](https://dagger.dev/hilt/) - Compile-time DI framework with KSP
-- **📊 Pagination**: [Jetpack Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - Advanced pagination with RemoteMediator
-- **💾 Database**: [Room](https://developer.android.com/training/data-storage/room) - SQLite with KSP, Coroutines & Paging integration
-- **🌐 Networking**: [Ktor Client](https://ktor.io/docs/getting-started-ktor-client.html) - Multiplatform HTTP client with:
+- **📦 Dependency Injection**: [Hilt](https://dagger.dev/hilt/) v2.57.1 - Compile-time DI framework with KSP
+- **📊 Pagination**: [Jetpack Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) v3.3.6 - Advanced pagination with RemoteMediator
+- **💾 Database**: [Room](https://developer.android.com/training/data-storage/room) v2.8.1 - SQLite with KSP, Coroutines & Paging integration
+- **🌐 Networking**: [Ktor Client](https://ktor.io/docs/getting-started-ktor-client.html) v3.3.0 - Multiplatform HTTP client with:
   - OkHttp engine for Android optimization
   - Content negotiation & JSON serialization
   - Request/Response logging
   - Resource-based routing
-- **🗺️ Navigation**: [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) - Type-safe navigation with Hilt integration
-- **🖼️ Image Loading**: [Coil](https://coil-kt.github.io/coil/) - Compose-native with Ktor3 network layer
+- **🗺️ Navigation**: [Navigation Compose](https://developer.android.com/jetpack/compose/navigation) v1.3.0 - Type-safe navigation with Hilt integration
+- **🖼️ Image Loading**: [Coil](https://coil-kt.github.io/coil/) v3.3.0 - Compose-native with Ktor3 network layer
 - **🔄 Serialization**: [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) - Zero-reflection JSON parsing
 
 ## 💻 Technical Implementation
@@ -118,16 +118,21 @@ class CharacterRepositoryImpl @Inject constructor(
 ### Development Tools
 - **Minimum SDK**: API 29 (Android 10)
 - **Target SDK**: API 36
+- **Compile SDK**: API 36
+- **Kotlin Version**: 2.2.20
 - **Kotlin Compiler**: JVM Target 11
-- **Build System**: Gradle with Kotlin DSL
+- **Android Gradle Plugin**: 8.13.0
+- **KSP Version**: 2.2.20-2.0.3
+- **Build System**: Gradle with Kotlin DSL and Version Catalogs
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- **Android Studio**: Hedgehog | 2023.1.1 or later
-- **JDK**: 11 or higher
+- **Android Studio**: Ladybug | 2024.2.1 or later (recommended)
+- **JDK**: 11 or higher (JDK 17 recommended for best performance)
 - **Android SDK**: API level 29 or higher
 - **Git**: For cloning the repository
+- **Gradle**: 8.13+ (bundled with Android Studio)
 
 ### Installation
 
@@ -180,102 +185,154 @@ This app uses the [Rick and Morty API](https://rickandmortyapi.com/) to fetch ch
 
 ## 🏢 Project Architecture
 
-This project follows **Clean Architecture** principles with clear separation of concerns:
+This project follows **Clean Architecture** principles with **modular architecture** for clear separation of concerns:
 
 ```text
-📱 Presentation Layer (UI)
-├── 🗺️ Navigation (NavGraph)
-├── 📱 Screens (Composables)
-├── 🧠 ViewModels (State Management)
-└── 🎨 UI Theme & Components
-
-💼 Domain Layer (Business Logic)
-├── 📊 Models (Domain Entities)
-├── ⚙️ Use Cases (Business Rules)
-└── 📄 Repository Interfaces
-
-📏 Data Layer (Data Sources)
-├── 🗺️ Repositories (Implementation)
-├── 🌐 Remote Data Source (API)
-├── 💾 Local Data Source (Room)
-└── 🔄 Mappers (Data Transformation)
+🏗️ Modular Architecture Overview
+├── 📱 app/ - Main application module (presentation layer)
+│   ├── MainActivity & Navigation
+│   ├── Application class & DI setup
+│   └── App-level configuration
+│
+├── 🎯 feature/ - Feature modules (presentation layer)
+│   └── characters/ - Character-related screens & ViewModels
+│       ├── Character List Screen
+│       ├── Character Detail Screen
+│       └── UI Models & State Management
+│
+├── 🏛️ core/ - Core modules (shared infrastructure)
+│   ├── domain/ - Domain layer (business logic)
+│   │   ├── Models & Entities
+│   │   ├── Use Cases
+│   │   └── Repository Interfaces
+│   ├── data/ - Data layer (repository implementations)
+│   │   ├── Repository Implementations
+│   │   ├── Data Mappers
+│   │   └── Paging Logic
+│   ├── database/ - Local data source (Room)
+│   │   ├── Database & DAOs
+│   │   ├── Entities
+│   │   └── Database DI
+│   ├── network/ - Remote data source (Ktor)
+│   │   ├── API Definitions
+│   │   ├── DTOs
+│   │   └── Network DI
+│   └── designsystem/ - Shared UI components & theming
+│       ├── Material 3 Theme
+│       ├── Reusable Components
+│       └── Typography & Colors
 ```
 
 ### Detailed Project Structure
 
 ```text
 RickAndMortyApp/
-├── app/
-│   ├── src/main/java/io/github/smithjustinn84_netizen/rickandmortyapp/
-│   │   ├── 🏠 Core Application
-│   │   │   ├── MainActivity.kt           # Single Activity + Compose
-│   │   │   ├── NavGraph.kt               # Navigation destinations
-│   │   │   └── Application.kt            # Hilt application class
-│   │   │
-│   │   ├── 👥 Feature: Characters
-│   │   │   ├── ui/
-│   │   │   │   ├── CharacterListScreen.kt    # Main list with pagination
-│   │   │   │   ├── CharacterCard.kt          # Character item composable
-│   │   │   │   └── CharacterViewModel.kt     # State management
-│   │   │   └── model/
-│   │   │       └── CharacterUiModel.kt       # UI-specific data models
-│   │   │
-│   │   ├── 📋 Feature: Character Detail
-│   │   │   ├── ui/
-│   │   │   │   ├── CharacterDetailScreen.kt  # Detailed character view
-│   │   │   │   └── DetailViewModel.kt        # Detail state management
-│   │   │   └── model/
-│   │   │       └── Status.kt                 # Status enum for StatusIcon
-│   │   │
-│   │   ├── 📏 Data Layer
-│   │   │   ├── local/                    # Room Database
-│   │   │   │   ├── AppDatabase.kt            # Room database definition
-│   │   │   │   ├── entity/
-│   │   │   │   │   ├── CharacterEntity.kt        # Room entity
-│   │   │   │   │   └── RemoteKeysEntity.kt       # Pagination keys
-│   │   │   │   └── dao/
-│   │   │   │       ├── CharacterDao.kt           # Character queries
-│   │   │   │       └── RemoteKeysDao.kt          # Pagination key queries
-│   │   │   ├── remote/                   # API Layer
-│   │   │   │   ├── CharacterApiService.kt    # Ktor API definitions
-│   │   │   │   ├── dto/                      # Network DTOs
-│   │   │   │   └── ApiResponse.kt            # API response models
-│   │   │   ├── repository/
-│   │   │   │   ├── CharacterRepository.kt    # Repository interface
-│   │   │   │   └── CharacterRepositoryImpl.kt # Repository implementation
+├── app/                                  # Main application module
+│   ├── src/main/java/.../rickandmortyapp/
+│   │   ├── MainActivity.kt               # Single Activity + Compose
+│   │   ├── RickAndMortyApplication.kt    # Hilt application class
+│   │   └── navigation/
+│   │       └── NavGraph.kt               # Navigation destinations
+│   └── build.gradle.kts                 # App module configuration
+│
+├── core/                                 # Core modules (shared infrastructure)
+│   ├── data/                            # 📏 Data Layer (Repository implementations)
+│   │   ├── src/main/java/.../data/
+│   │   │   ├── di/
+│   │   │   │   └── DataModule.kt         # Data layer DI bindings
+│   │   │   ├── mappers/
+│   │   │   │   └── CharacterMapper.kt    # Entity ↔ Domain mapping
 │   │   │   └── paging/
 │   │   │       └── CharacterRemoteMediator.kt # Advanced pagination logic
-│   │   │
-│   │   ├── 💼 Domain Layer
+│   │   └── build.gradle.kts
+│   │
+│   ├── database/                        # 💾 Database Layer (Room)
+│   │   ├── src/main/java/.../database/
+│   │   │   ├── AppDatabase.kt           # Room database definition
+│   │   │   ├── AppDatabaseFactory.kt    # Database factory
+│   │   │   ├── dao/
+│   │   │   │   ├── CharacterDao.kt      # Character queries
+│   │   │   │   └── RemoteKeysDao.kt     # Pagination key queries
+│   │   │   ├── di/
+│   │   │   │   └── DatabaseModule.kt    # Room DI module
+│   │   │   └── model/
+│   │   │       ├── CharacterEntity.kt   # Room entity
+│   │   │       └── RemoteKeys.kt        # Pagination keys entity
+│   │   └── build.gradle.kts
+│   │
+│   ├── designsystem/                    # 🎨 Design System (UI Components & Theming)
+│   │   ├── src/main/java/.../designsystem/
+│   │   │   ├── component/
+│   │   │   │   ├── Error.kt             # Error state components
+│   │   │   │   ├── Loading.kt           # Loading state components
+│   │   │   │   └── Notification.kt      # Custom notifications
+│   │   │   ├── preview/
+│   │   │   │   └── ProvidePreview.kt    # Preview utilities
+│   │   │   └── theme/
+│   │   │       ├── Color.kt             # Material 3 colors
+│   │   │       ├── Theme.kt             # App theming
+│   │   │       └── Typography.kt        # Typography scale
+│   │   └── build.gradle.kts
+│   │
+│   ├── domain/                          # 💼 Domain Layer (Business Logic)
+│   │   ├── src/main/java/.../domain/
 │   │   │   ├── model/
-│   │   │   │   └── Character.kt              # Domain model
-│   │   │   └── repository/
-│   │   │       └── CharacterRepository.kt    # Clean architecture interface
-│   │   │
-│   │   ├── 📦 Dependency Injection
-│   │   │   ├── DatabaseModule.kt         # Room DI module
-│   │   │   ├── NetworkModule.kt          # Ktor DI module
-│   │   │   └── RepositoryModule.kt       # Repository bindings
-│   │   │
-│   │   └── 🎨 Shared UI Components
-│   │       ├── composables/
-│   │       │   ├── StatusIcon.kt            # Status emoji component
-│   │       │   ├── Emoji.kt                 # Reusable emoji component
-│   │       │   ├── LogoImage.kt             # Brand logo component
-│   │       │   ├── LoadingScreen.kt         # Loading state UI
-│   │       │   ├── ErrorScreen.kt           # Error state UI
-│   │       │   ├── Notification.kt          # Custom notifications
-│   │       │   └── ProvidePreview.kt        # Preview utilities
-│   │       └── theme/
-│   │           ├── Color.kt                 # Material 3 colors
-│   │           ├── Theme.kt                 # App theming
-│   │           ├── Roboto.kt                # Custom typography
-│   │           └── Type.kt                  # Typography scale
-│   └── build.gradle.kts                  # Modern Gradle with KSP
-├── screenshots/                          # Device screenshots
-├── build.gradle.kts                      # Project configuration
-└── settings.gradle.kts                   # Version catalogs
+│   │   │   │   └── Character.kt         # Domain model
+│   │   │   └── usecases/
+│   │   │       └── GetCharactersUseCase.kt # Business logic
+│   │   └── build.gradle.kts
+│   │
+│   └── network/                         # 🌐 Network Layer (API)
+│       ├── src/main/java/.../network/
+│       │   └── di/
+│       │       └── NetworkModule.kt     # Ktor DI module
+│       └── build.gradle.kts
+│
+├── feature/                             # Feature modules
+│   └── characters/                      # 👥 Characters Feature
+│       ├── src/main/java/.../
+│       │   ├── characterdetail/         # Character Detail Feature
+│       │   │   ├── model/
+│       │   │   │   └── Status.kt        # Status enum for StatusIcon
+│       │   │   └── ui/
+│       │   │       └── CharacterDetailScreen.kt # Detail view
+│       │   └── characters/              # Character List Feature
+│       │       ├── model/
+│       │       │   └── CharacterUiModel.kt # UI-specific models
+│       │       └── ui/
+│       │           ├── CharacterCard.kt    # Character item composable
+│       │           ├── CharacterListScreen.kt # Main list with pagination
+│       │           └── CharacterViewModel.kt # State management
+│       └── build.gradle.kts
+│
+├── gradle/
+│   ├── libs.versions.toml               # Version catalog (centralized dependencies)
+│   └── wrapper/
+├── screenshots/                         # Device screenshots
+├── build.gradle.kts                     # Project-level configuration
+└── settings.gradle.kts                  # Project settings & module declarations
 ```
+
+### 🎆 **Benefits of Modular Architecture**
+
+This project leverages **modular architecture** for enhanced maintainability and scalability:
+
+#### 🛡️ **Separation of Concerns**
+- **Feature Isolation**: Each feature module is self-contained with its own UI, ViewModels, and models
+- **Core Infrastructure**: Shared business logic, data access, and UI components are centralized
+- **Clear Boundaries**: Well-defined interfaces between modules prevent tight coupling
+
+#### 💬 **Development Benefits**
+- **Faster Build Times**: Gradle builds only changed modules and their dependents
+- **Team Collaboration**: Multiple developers can work on different modules simultaneously
+- **Code Reusability**: Core modules can be shared across multiple feature modules
+- **Testing Isolation**: Unit tests can focus on specific modules without external dependencies
+
+#### 🚀 **Technical Advantages**
+- **Lazy Loading**: Feature modules can be dynamically loaded (Dynamic Feature Modules support)
+- **Dependency Management**: Version catalogs ensure consistent dependency versions across modules
+- **Clean Dependencies**: Unidirectional dependency flow (feature → core, never core → feature)
+- **Scalability**: Easy to add new features without affecting existing code
 
 ## 🧪 Testing
 
@@ -321,14 +378,24 @@ This project follows [Android's official coding standards](https://developer.and
 # Debug build with detailed logging
 ./gradlew assembleDebug
 
-# Run unit tests
+# Run unit tests for all modules
 ./gradlew testDebugUnitTest
+
+# Run tests for specific module
+./gradlew :core:domain:test
+./gradlew :feature:characters:testDebugUnitTest
 
 # Run instrumented tests
 ./gradlew connectedDebugAndroidTest
 
 # Generate test coverage report
 ./gradlew testDebugUnitTestCoverage
+
+# Check dependency updates
+./gradlew dependencyUpdates
+
+# Analyze build performance
+./gradlew build --scan
 ```
 
 ## 🚫 Troubleshooting
@@ -493,9 +560,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **[Rick and Morty API](https://rickandmortyapi.com/)** - For providing the awesome free API
-- **Adult Swim & Dan Harmon** - For creating the amazing Rick and Morty series
+- **Adult Swim & Dan Harmon** - For creating the amazing Rick and Morty series  
 - **Android Developer Community** - For excellent documentation and samples
-- **Jetpack Compose Team** - For the modern UI toolkit
+- **Jetpack Compose Team** - For the revolutionary declarative UI toolkit
+- **Google Android Team** - For the comprehensive architecture components
+- **JetBrains** - For Kotlin and the excellent developer tools
+- **Square/Block** - For inspiring clean architecture patterns
 
 ## 📞 Contact
 
@@ -506,9 +576,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made with ❤️ for Android developers
+  <em>Built with modern Android architecture and 💚 for the community</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Modular%20Architecture-✅-brightgreen" alt="Modular Architecture"/>
+  <img src="https://img.shields.io/badge/Clean%20Architecture-✅-blue" alt="Clean Architecture"/>
+  <img src="https://img.shields.io/badge/Jetpack%20Compose-✅-orange" alt="Jetpack Compose"/>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Wubba%20Lubba%20Dub%20Dub!-💚-green" alt="Rick and Morty"/>
+</p>
+
+<p align="center">
+  <sub><em>Last updated: December 2024</em></sub>
 </p>
